@@ -36,3 +36,147 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* =========================
+   MOBILE RESPONSIVE FIXES
+   ========================= */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Navbar */
+  nav {
+    padding: 0.5rem 1rem !important;
+  }
+
+  .nav-links {
+    display: none; /* hide desktop nav */
+  }
+
+  /* Sections */
+  section {
+    padding: 6rem 1rem 3rem !important;
+  }
+
+  /* Hero */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+
+  .role-text {
+    justify-content: center;
+    font-size: 1.5rem !important;
+  }
+
+  /* Buttons */
+  .button-group {
+    justify-content: center;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Profile Image */
+  .profile-image {
+    width: 240px !important;
+    height: 240px !important;
+  }
+
+  /* Skills */
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Projects */
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =========================
+   MOBILE RESPONSIVE FIXES
+   ========================= */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Navbar */
+  nav {
+    padding: 0.5rem 1rem !important;
+  }
+
+  .nav-links {
+    display: none; /* hide desktop nav */
+  }
+
+  /* Sections */
+  section {
+    padding: 6rem 1rem 3rem !important;
+  }
+
+  /* Hero */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+
+  .role-text {
+    justify-content: center;
+    font-size: 1.5rem !important;
+  }
+
+  /* Buttons */
+  .button-group {
+    justify-content: center;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Profile Image */
+  .profile-image {
+    width: 240px !important;
+    height: 240px !important;
+  }
+
+  /* Skills */
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Projects */
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
