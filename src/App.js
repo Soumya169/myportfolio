@@ -8,6 +8,8 @@ const Portfolio = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
   const roles = ["Data Analyst", "Business Analyst", "ML Engineer"];
 
@@ -227,7 +229,7 @@ const Portfolio = () => {
     },
     section: {
       minHeight: '100vh',
-      padding: '8rem 2rem 5rem',
+      padding: '6rem 1.2rem 4rem',
       maxWidth: '1400px',
       margin: '0 auto',
       position: 'relative'
@@ -686,26 +688,202 @@ const Portfolio = () => {
           background: linear-gradient(135deg, #9333ea, #ec4899);
           border-radius: 10px;
         }
+
+        /* ================= MOBILE RESPONSIVE NAV ================= */
+
+.mobile-menu-btn {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #a78bfa;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+/* Mobile & Tablet */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    background: rgba(15, 23, 42, 0.98);
+    border-top: 1px solid rgba(168, 85, 247, 0.3);
+    animation: slideDown 0.3s ease;
+  }
+
+  .mobile-nav-item {
+    padding: 1rem 2rem;
+    text-align: left;
+    font-size: 1.1rem;
+    color: #e5e7eb;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    cursor: pointer;
+  }
+
+  .mobile-nav-item:hover {
+    background: rgba(168, 85, 247, 0.15);
+    color: #a78bfa;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+/* ================= HERO MOBILE FIX ================= */
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+
+  .role-text {
+    justify-content: center;
+  }
+
+  .button-group {
+    justify-content: center;
+  }
+}
+
+/* ================= EXTRA SMALL DEVICES (Samsung S51 etc) ================= */
+
+@media (max-width: 420px) {
+
+  /* NAVBAR */
+  nav {
+    padding: 0.5rem 0;
+  }
+
+  .mobile-menu-btn {
+    font-size: 1.8rem;
+  }
+
+  /* HERO SECTION */
+  .hero-grid {
+    padding-top: 2rem;
+    gap: 2rem;
+  }
+
+  .hero-title {
+    font-size: 1.9rem !important;
+    line-height: 1.2;
+  }
+
+  .role-text {
+    font-size: 1.4rem !important;
+    min-height: 2.2rem;
+    justify-content: center;
+  }
+
+  .role-text span {
+    white-space: nowrap;
+  }
+
+  p {
+    font-size: 1rem !important;
+    line-height: 1.6;
+  }
+
+  /* BUTTONS */
+  .button-group {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* SOCIAL ICONS */
+  .social-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+
+  /* IMAGE */
+  .profile-image {
+    width: 260px !important;
+    height: 260px !important;
+  }
+}
+
       `}</style>
 
       {/* Navigation */}
-      <nav style={styles.nav}>
-        <div style={styles.navContent}>
-          <div style={styles.logo}>Soumya Maharana</div>
-          <div style={styles.navLinks}>
-            {['home', 'skills', 'experience', 'projects', 'contact'].map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                style={styles.navButton}
-                className={`nav-button ${activeSection === section ? 'active' : ''}`}
-              >
-                {section}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
+<nav style={styles.nav}>
+  <div style={styles.navContent}>
+    <div style={styles.logo}>Soumya Maharana</div>
+
+    {/* Desktop Nav */}
+    <div style={styles.navLinks} className="desktop-nav">
+      {['home', 'skills', 'experience', 'projects', 'contact'].map((section) => (
+        <button
+          key={section}
+          onClick={() => scrollToSection(section)}
+          style={styles.navButton}
+          className={`nav-button ${activeSection === section ? 'active' : ''}`}
+        >
+          {section}
+        </button>
+      ))}
+    </div>
+
+    {/* Mobile Menu Button */}
+    <div
+      className="mobile-menu-btn"
+      onClick={() => setIsMenuOpen(!isMenuOpen)}
+    >
+      ☰
+    </div>
+  </div>
+
+  {/* Mobile Dropdown Menu */}
+  {isMenuOpen && (
+    <div className="mobile-nav">
+      {['home', 'skills', 'experience', 'projects', 'contact'].map((section) => (
+        <button
+          key={section}
+          onClick={() => {
+            scrollToSection(section);
+            setIsMenuOpen(false);
+          }}
+          className="mobile-nav-item"
+        >
+          {section}
+        </button>
+      ))}
+    </div>
+  )}
+</nav>
+
 
       {/* Hero Section */}
       <section id="home" style={styles.section}>
@@ -716,8 +894,12 @@ const Portfolio = () => {
               <span style={styles.gradient}>Soumya Ranjan</span>
             </h1>
             <div style={styles.roleText} className="role-text">
-              I am<span style={styles.cursor}>{displayedText}</span>
-            </div>
+  I am&nbsp;
+  <span style={{ whiteSpace: 'nowrap' }}>
+    <span style={styles.cursor}>{displayedText}</span>
+  </span>
+</div>
+
             <p style={styles.description}>
               Entry-level Data Analyst and Machine Learning Engineer with hands-on experience in data analysis,
               demand forecasting, predictive modeling, and dashboard development.
