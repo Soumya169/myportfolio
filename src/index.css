@@ -80,3 +80,13 @@ body {
 .skill-pro-card:hover::after {
   transform: translateX(100%);
 }
+
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  overflow-x: hidden;
+}
