@@ -1239,6 +1239,91 @@ const Portfolio = () => {
             </div>
           </div>
 
+          {/* KEY STRENGTHS */}
+          <div>
+            <h3 style={{
+              fontSize: '1.5rem',
+              fontWeight: '700',
+              color: '#ec4899',
+              marginBottom: '1.5rem',
+              paddingLeft: '1rem',
+              borderLeft: '4px solid #db2777'
+            }}>KEY STRENGTHS</h3>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '1.5rem'
+            }}>
+              {[
+                { name: "Comm. & storytelling", level: 82, icon: "💬", color: '#ff6b6b' },
+                { name: "Problem Solving & Critical Thinking", level: 90, icon: "🧠", color: '#4ecdc4' },
+                { name: "Presentation & Visualization Clarity", level: 92, icon: "📊 ", color: '#95e1d3' },
+                { name: "Collaboration & Teamwork", level: 80, icon: "🤝", color: '#f38181' }
+              ].map((skill, idx) => (
+                <div key={idx} style={{
+                  background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(51, 65, 85, 0.8))',
+                  backdropFilter: 'blur(20px)',
+                  padding: '1.75rem',
+                  borderRadius: '1rem',
+                  border: '1px solid rgba(236, 72, 153, 0.2)',
+                  transition: 'all 0.3s ease',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }} className="skill-pro-card">
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                      <div style={{
+                        width: '48px',
+                        height: '48px',
+                        background: `linear-gradient(135deg, ${skill.color}22, ${skill.color}11)`,
+                        borderRadius: '12px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '1.75rem',
+                        border: `2px solid ${skill.color}44`
+                      }}>
+                        {skill.icon}
+                      </div>
+                      <div>
+                        <div style={{ fontSize: '1.2rem', fontWeight: '700', color: '#fff' }}>{skill.name}</div>
+                        <div style={{ fontSize: '0.85rem', color: '#94a3b8', marginTop: '0.25rem' }}>
+                          {skill.level >= 85 ? 'Expert' : skill.level >= 75 ? 'Advanced' : 'Intermediate'}
+                        </div>
+                      </div>
+                    </div>
+                    <div style={{
+                      fontSize: '1.75rem',
+                      fontWeight: '900',
+                      background: 'linear-gradient(135deg, #ec4899, #f59e0b)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent'
+                    }}>
+                      {skill.level}%
+                    </div>
+                  </div>
+                  <div style={{
+                    width: '100%',
+                    height: '8px',
+                    background: 'rgba(51, 65, 85, 0.8)',
+                    borderRadius: '10px',
+                    overflow: 'hidden',
+                    position: 'relative'
+                  }}>
+                    <div style={{
+                      width: `${skill.level}%`,
+                      height: '100%',
+                      background: `linear-gradient(90deg, ${skill.color}, #f59e0b)`,
+                      borderRadius: '10px',
+                      transition: 'width 1.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                      boxShadow: `0 0 15px ${skill.color}88`
+                    }}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
 
