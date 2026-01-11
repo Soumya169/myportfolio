@@ -840,7 +840,7 @@ const Portfolio = () => {
       {/* Navigation */}
 <nav style={styles.nav}>
   <div style={styles.navContent}>
-    <div style={styles.logo}>Soumya Maharana</div>
+    <div style={styles.logo}>Soumya</div>
 
     {/* Desktop Nav */}
     <div style={styles.navLinks} className="desktop-nav">
