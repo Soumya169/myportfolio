@@ -11,7 +11,13 @@ const Portfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 
-  const roles = ["Data Analyst", "Business Analyst", "ML Engineer"];
+const roles = [
+  "Data Analyst",
+  "Machine Learning Engineer",
+  "SAP ABAP / RAP Developer",
+  "SAP CPI Developer",
+  "Data & AI Enthusiast"
+];
 
   // Typewriter effect
   useEffect(() => {
@@ -894,7 +900,6 @@ const Portfolio = () => {
               <span style={styles.gradient}>Soumya Ranjan</span>
             </h1>
             <div style={styles.roleText} className="role-text">
-  I am&nbsp;
   <span style={{ whiteSpace: 'nowrap' }}>
     <span style={styles.cursor}>{displayedText}</span>
   </span>
@@ -1239,7 +1244,8 @@ const Portfolio = () => {
             </div>
           </div>
 
-          {/* KEY STRENGTHS */}
+          {/* KEY STRENGTHS
+*/}
           <div>
             <h3 style={{
               fontSize: '1.5rem',
